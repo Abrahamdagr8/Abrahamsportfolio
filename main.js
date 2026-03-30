@@ -55,10 +55,12 @@ if (mobileBtn) {
         if (isOpen) navEl.style.display = 'none';
     });
 
-    // close menu when a nav link is clicked
+    // close menu when a nav link is clicked (only on mobile)
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', () => {
-            navEl.style.display = 'none';
+            if (window.innerWidth < 992) {
+                navEl.style.display = 'none';
+            }
         });
     });
 }

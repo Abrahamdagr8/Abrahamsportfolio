@@ -280,6 +280,12 @@ nav ul a {
 
 nav ul a:hover { color: var(--text-main); }
 
+@media (min-width: 992px) {
+    nav {
+        display: flex !important; /* Force visible on desktop regardless of JS state */
+    }
+}
+
 .nav-cta {
     margin-left: auto;
     padding: 0.65rem 1.5rem;
@@ -779,9 +785,9 @@ nav ul a:hover { color: var(--text-main); }
     position: relative;
     z-index: 1;
     margin-bottom: 0.25rem;
-    font-size: 1.5rem;
-    width: 60px;
-    height: 60px;
+    font-size: 1.25rem; /* Reduced font size */
+    width: 48px; /* Reduced from 60px */
+    height: 48px; /* Reduced from 60px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -846,7 +852,7 @@ nav ul a:hover { color: var(--text-main); }
 
 /* ── TOOLS GRID ── */
 #tools {
-    background: linear-gradient(180deg, #182236 0%, var(--bg-subtle) 100%);
+    background: transparent; /* Made transparent for GRC background flow */
     position: relative;
     border-top: 1px solid rgba(255,255,255,0.05);
     border-bottom: 1px solid rgba(255,255,255,0.05);
