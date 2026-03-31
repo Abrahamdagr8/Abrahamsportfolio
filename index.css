@@ -907,19 +907,21 @@ nav ul a:hover { color: var(--text-main); }
     z-index: 2;
 }
 
-/* Orbit Positioning Logic (12 tools, 30deg increments) */
-.tool-card:nth-child(1)  { transform: rotate(0deg)   translateY(-260px) rotate(0deg); }
-.tool-card:nth-child(2)  { transform: rotate(30deg)  translateY(-260px) rotate(-30deg); }
-.tool-card:nth-child(3)  { transform: rotate(60deg)  translateY(-260px) rotate(-60deg); }
-.tool-card:nth-child(4)  { transform: rotate(90deg)  translateY(-260px) rotate(-90deg); }
-.tool-card:nth-child(5)  { transform: rotate(120deg) translateY(-260px) rotate(-120deg); }
-.tool-card:nth-child(6)  { transform: rotate(150deg) translateY(-260px) rotate(-150deg); }
-.tool-card:nth-child(7)  { transform: rotate(180deg) translateY(-260px) rotate(-180deg); }
-.tool-card:nth-child(8)  { transform: rotate(210deg) translateY(-260px) rotate(-210deg); }
-.tool-card:nth-child(9)  { transform: rotate(240deg) translateY(-260px) rotate(-240deg); }
-.tool-card:nth-child(10) { transform: rotate(270deg) translateY(-260px) rotate(-270deg); }
-.tool-card:nth-child(11) { transform: rotate(300deg) translateY(-260px) rotate(-300deg); }
-.tool-card:nth-child(12) { transform: rotate(330deg) translateY(-260px) rotate(-330deg); }
+/* Orbit Positioning Logic (14 tools, ~25.7deg increments) */
+.tool-card:nth-child(1)  { transform: rotate(0deg)      translateY(-270px) rotate(0deg); }
+.tool-card:nth-child(2)  { transform: rotate(25.7deg)   translateY(-270px) rotate(-25.7deg); }
+.tool-card:nth-child(3)  { transform: rotate(51.4deg)   translateY(-270px) rotate(-51.4deg); }
+.tool-card:nth-child(4)  { transform: rotate(77.1deg)   translateY(-270px) rotate(-77.1deg); }
+.tool-card:nth-child(5)  { transform: rotate(102.8deg)  translateY(-270px) rotate(-102.8deg); }
+.tool-card:nth-child(6)  { transform: rotate(128.5deg)  translateY(-270px) rotate(-128.5deg); }
+.tool-card:nth-child(7)  { transform: rotate(154.2deg)  translateY(-270px) rotate(-154.2deg); }
+.tool-card:nth-child(8)  { transform: rotate(180deg)    translateY(-270px) rotate(-180deg); }
+.tool-card:nth-child(9)  { transform: rotate(205.7deg)  translateY(-270px) rotate(-205.7deg); }
+.tool-card:nth-child(10) { transform: rotate(231.4deg)  translateY(-270px) rotate(-231.4deg); }
+.tool-card:nth-child(11) { transform: rotate(257.1deg)  translateY(-270px) rotate(-257.1deg); }
+.tool-card:nth-child(12) { transform: rotate(282.8deg)  translateY(-270px) rotate(-282.8deg); }
+.tool-card:nth-child(13) { transform: rotate(308.5deg)  translateY(-270px) rotate(-308.5deg); }
+.tool-card:nth-child(14) { transform: rotate(334.2deg)  translateY(-270px) rotate(-334.2deg); }
 
 .tool-card:hover {
     border-color: var(--primary);
@@ -1410,8 +1412,40 @@ nav ul a:hover { color: var(--text-main); }
     }
 
     #hero p { margin: 0 auto 2.5rem; }
-    .hero-actions { justify-content: center; }
+    .hero-actions { 
+        justify-content: center; 
+        gap: 1.25rem;
+    }
     .hero-right { justify-content: center; }
+
+    /* Fix Orbital Toolkit on Mobile/Tablets */
+    .tools-grid {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .tools-grid::after {
+        display: none; /* Hide center circle on mobile */
+    }
+
+    .tool-card {
+        position: static !important;
+        transform: none !important;
+        width: 120px;
+        height: 120px;
+        margin: 0 !important;
+        animation: tool-float 6s ease-in-out infinite;
+    }
+
+    .tool-card:nth-child(n) { transform: none !important; margin: 0 !important; }
+    .tool-card:nth-child(even) { animation-delay: -1s; }
+    .tool-card:nth-child(3n) { animation-delay: -2s; }
 
     .about-wrapper {
         grid-template-columns: 1fr;
@@ -1475,6 +1509,15 @@ nav ul a:hover { color: var(--text-main); }
 
     .profile-card { max-width: 100%; }
     .contact-cta { padding: 3.5rem 1.5rem; }
+
+    .hero-actions { 
+        flex-direction: column; 
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    .hero-actions .btn { justify-content: center; }
 
     .edu-grid { grid-template-columns: 1fr; }
 }
