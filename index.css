@@ -439,7 +439,7 @@ nav ul a:hover { color: var(--text-main); }
     border-radius: var(--r-xl);
     overflow: hidden;
     box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-    background: var(--bg-card);
+    background: radial-gradient(circle at 50% 40%, rgba(0, 212, 170, 0.35) 0%, rgba(17, 24, 39, 0.6) 70%, var(--bg-card) 100%);
 }
 
 .hero-full-image {
