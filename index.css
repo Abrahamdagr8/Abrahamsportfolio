@@ -342,12 +342,14 @@ nav ul a:hover { color: var(--text-main); }
     left: 55%;
     transform: translate(-50%, -50%);
     filter: blur(100px);
+    pointer-events: none;
 }
 
 .decor-ring {
     position: absolute;
     border-radius: 50%;
     border: 1px solid var(--border);
+    pointer-events: none;
 }
 
 .ring-1 {
